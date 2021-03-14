@@ -27,13 +27,25 @@
   },
   "homepage": "https://github.com/andrico1234/sane-error-messages#readme",
   "dependencies": {
-    "sade": "^1.7.4"
+    "@types/execa": "^2.0.0",
+    "chalk": "^4.1.0",
+    "enquirer": "^2.3.6",
+    "execa": "^5.0.0",
+    "fs-extra": "^9.1.0",
+    "ora": "^5.3.0",
+    "sade": "^1.7.4",
+    "semver": "^7.3.4",
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.8",
     "@types/node": "^14.14.34",
     "@types/sade": "^1.7.2",
+    "@types/semver": "^7.3.4",
+    "@types/shelljs": "^0.8.8",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
-    "eslint": "^7.22.0"
+    "eslint": "^7.22.0",
+    "type-fest": "^0.21.3"
   }
 }
