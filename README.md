@@ -2,8 +2,7 @@
 
 ## Todo
 
-- [ ] Get a repo set up
-- [ ] Copy over the code from the medsol repo
+- [ ] Get a repo set up 
 - [ ] Run a script that generates a new project for someone
 - [ ] Script can be run via `npx` 
 - [ ] Add instructions into a README
