@@ -2,16 +2,18 @@
 
 ## Todo
 
-- [ ] Get a repo set up 
+- [x] Get a repo set up 
 - [ ] Run a script that generates a new project for someone
 - [ ] Script can be run via `npx` 
-- [ ] Add instructions into a README
-- [ ] Use `tsdx` to handle all package management
+- [x] Add instructions into a README
+- [x] Use `tsdx` to handle all package management
 
 Nice to have
 
 - [ ] Link to error code object from remote
   - Would this be done at build time or run time?
+- [ ] Clean up the exports, and reduce code repetition
+- [ ] Create a javascript version
 
 
 ## Name ideas
