@@ -2,71 +2,86 @@
 
 Gone are the days of useless generic error messaging. Keep your end-users happy with `sane-error-messages`.
 
-## Todo
+![](https://public-images-and-stuff.s3.amazonaws.com/ykhg3yuzq8931.png)
 
-- [ ] Script can be run via `npx` 
-- [x] Get a repo set up 
-- [x] Run a script that generates a new project for someone
-- [x] Add instructions into a README
-- [x] Use `tsdx` to handle all package management
+If you're here, you're likely concerned with making your user-facing products as delightful as possible. Error messaging plays an important role in that. Having useful error messages can go a long way in making a frustrating scenario for an end-user as pleasant as possible.
 
-Nice to have
-
-- [ ] Link to error code object from remote
-  - Would this be done at build time or run time?
-- [ ] Clean up the exports, and reduce code repetition
-- [ ] Create a javascript version
+If you want to jump straight in, you can head over to our [quickstart](#getting-started)
 
 ## The current state of error messaging
 
-In a perfect would, this package would be completely redundant, but your end users are going to come across errors. These errors can stem take the form as:
+In a perfect world, the error message would be redundant, users would be able to use anything you build, without friction. But errors will happen, and your end-users will run into them. These errors can stem from:
 
-- Validation errors
+- Failing validation
 - Server-side failures
 - Rate limiting
-- Broken code
+- Borked code
 - Acts of god
 
-Quite often, client-facing error messaging take shape in one of two ways:
+And when things go wrong, often the client-facing error messaging takes shape in one of two ways:
 
 - Generic errors with no meaningful information, e.g. `Something went wrong, please try again later`
-- Hyper specific messages from the stack trace sent by the server, e.g. `Error 10x29183: line 26: error mapping Object -> Int32` 
+- Hyper specific messages from the stack trace sent by the server, e.g. `Error 10x29183: line 26: error mapping Object -> Int32`
 
-Neither are helpful for our end users.
+Neither are helpful for our end-users.
 
-The first creates a feeling of helplessness and frustration. A user is prevented from completing an action, and have no way to know why it happened, and how (or if) they can avoid it. This can result in loss of end-user trust, or loss of customer.
+For our users, the generic error creates a feeling of helplessness and frustration. A user is prevented from completing an action, and have no way of knowing why it happened, and how (or if) they can resolve it. This can result in loss of end-user trust, loss of customer, or an angry review.
 
-The latter error messages are a leaky abstraction that shouldn't be making their way over to the end user's eyes. As well as providing implementation information about servers... what's kinneret's rationale?
+On the other hand, hyper-specific error messages are a leaky abstraction and shouldn't be seen by our end-user's eyes. 
+
+For one, these kind of errors provide implementation information about our server-side logic. Is this a security concern? maybe? I'm no pen-tester.
+
+Secondly, if we're in the business of crafting engaging user experiences, our error messages should feel human and be service-oriented.
 
 ## Why should we create sane error messaging?
 
 **Developer Sanity**
 
-Hunting bugs is hard, and scanning logs is tedious. If an end-user reports a bug it's important that they are able to present to us as much useful information as possible.
+Hunting bugs is hard, and scanning logs is tedious. Sometimes we're provided with context about why things failed, and other times we aren't. If an end-user reports a bug it's important they can present to us as much useful information as possible.
 
 A report from a user that says:
 
-`Hi, I was using the app sometime last night updating my profile and all of a sudden it stopped working. The error said something about an internal server error, but I don't know what that means`
+`Hi, I was using the app sometime last night updating my profile and all of a sudden it stopped working. The error said something about a validation error, but I don't know what that means`
 
 is much less useful than:
 
-`Hi, I was using the app sometime last night updating my profile and all of a sudden it stopped working. The error said "We had trouble updating your details. Your address must be located within the EU`
+`Hi, I was using the app sometime last night updating my profile and all of a sudden it stopped working. The error said "We had trouble updating your details. Your address must be located within the EU" but I live in England`
 
-This potentially saves us time and cuts down on possible red herrings. It's also possible that a specific error message might help an end-user understand what they themselves have done wrong, and will help them rectify their mistake.
+This saves us time and cuts down on red herrings. A clear and specific error message may also help an end-user understand what they themselves have done wrong, and could help them fix their mistake.
+
+**Organisation Sanity**
+
+Managing your error messages in this way also yields benefits on an organisation level. For those working in larger companies, copy/messaging may be the responsibility of an entirely separate department. 
+
+The fewer places needed to make changes, the better. Keeping all of your error messages in a single source makes it much easier for those owning copy to adhere to your company's brand guidelines.
 
 **End-user Sanity**
 
-If you're here, it's likely you're concerned with making your user-facing products as delightful as possible. Error messaging plays an important role in that. Having useful error messages can go a long way to making a frustrating scenario for an end-user, as pleasant as possible.
+We want our end-users to enjoy using our products.
+
+We don't want them feeling helpless when presented with a generic message. 
+We don't want them feeling intimidated when faced with a cryptic stack trace. 
+We don't want them feeling frustrated when they're stopped dead in their tracks in the middle of a task.
 
 **What makes a good error message?**
 
-Taken from Microcopy: A complete guide. A useful error message should satisy these qualities:
+Taken from [Microcopy: A complete guide](https://www.microcopybook.com/). A useful error message should satisy these qualities:
 
 - Explain clearly that there is a problem
 - Explain what the problem is
 - If possible, provide a solution so that the user can complete the process, or
 - Point them to where they can go for help
 - Make a frustrating scenario as pleasant as possible
+
+**How does Sane Error Messages help me?**
+
+Inspired by how tools like [Cypress](https://github.com/cypress-io/cypress/blob/develop/packages/server/lib/errors.js) handle their error messaging, `sane-error-messages` is designed to help you, the developer, easily manage your error messaging across your end-user facing products.
+
+`sane-error-messages` creates a brand new repo for you, that you can customise to return sane error messages based on predefined error codes. You can then publish and consume from your within own projects.
+
+As long as your server returns predictable error codes, the server-side implementation doesn't matter. This sequence is just one way of implementing `sane-error-messages`:
+
+![](https://public-images-and-stuff.s3.amazonaws.com/Screenshot+2021-03-15+at+21.41.28.png)
 
 ## Getting started
 
@@ -109,8 +124,6 @@ type ErrorCode = ValueOf<errorCodes>
 
 ```
 
-
-
 ### Consuming your error messages
 
 ```typescript
@@ -138,26 +151,6 @@ function riskyFunction() {
 
 ```
 
-## Scenario
-
-Parts Unlimited have released an update to their core API. It allows those with a role of `admin` to list all product information, but those with a role of `user` do not have permission.
-
-The frontend shows the 'View all products' button regardless of role.
-
-```mermaid
-sequenceDiagram
-
-User->>Frontend: Clicks "View all products"
-Frontend->>Server: getProducts()
-Server->>Server: Issue retreiving data, handle error
-Server->>Frontend: Error object: Code (403_USER_NOT_ADMIN)
-Frontend->>error-messages: getErrorMessage(code)
-error-messages->>Frontend: "We're afraid only administrators have access to "
-Frontend->>Frontend: Appends contextual information
-Frontend->>User: "We're afraid only adminstrators have access to this list of products."
-```
-
-
 
 ## FAQs
 
@@ -172,3 +165,18 @@ No necessarily. Because this package can take a list of default messages and cod
 **I think this package should have X or do Y differently**
 
 I'm dogfooding this internally at my job, and this is a problem space I'm very new to. I would love to hear of any suggestions, or improvements to the overall architecture or feature-set of `sane-error-messages`.
+
+## Todo
+
+- [ ] Script can be run via `npx` 
+- [x] Get a repo set up 
+- [x] Run a script that generates a new project for someone
+- [x] Add instructions into a README
+- [x] Use `tsdx` to handle all package management
+
+Nice to have
+
+- [ ] Link to error code object from remote
+  - Would this be done at build time or run time?
+- [ ] Clean up the exports, and reduce code repetition
+- [ ] Create a javascript version
