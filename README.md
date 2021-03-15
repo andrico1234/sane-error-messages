@@ -4,9 +4,9 @@ Gone are the days of useless generic error messaging. Keep your end-users happy 
 
 ## Todo
 
+- [ ] Script can be run via `npx` 
 - [x] Get a repo set up 
 - [x] Run a script that generates a new project for someone
-- [ ] Script can be run via `npx` 
 - [x] Add instructions into a README
 - [x] Use `tsdx` to handle all package management
 
@@ -74,7 +74,8 @@ Taken from Microcopy: A complete guide. A useful error message should satisy the
 
 Begin by running
 
-`npx sane-error-messages create <dirName>` to scaffold your project. Doing so will create a brand new module for you to customise with your default error messages. Your new module uses `tsdx` under-the-hood to handle all of the module management scripts, such as running, building, testing. 
+`yarn global add sane-error-message` and
+`sane-error-messages create <dirName>` to scaffold your project. Doing so will create a brand new module for you to customise with your default error messages. Your new module uses `tsdx` under-the-hood to handle all of the module management scripts, such as running, building, testing. 
 
 You can learn more about [tsdx here](https://tsdx.io/)
 
@@ -139,7 +140,7 @@ function riskyFunction() {
 
 ## Scenario
 
-Parts Unlimited (link to book) have released an update to their core API. It allows those with a role of `admin` to list all product information, but those with a role of `user` do not have permission.
+Parts Unlimited have released an update to their core API. It allows those with a role of `admin` to list all product information, but those with a role of `user` do not have permission.
 
 The frontend shows the 'View all products' button regardless of role.
 
