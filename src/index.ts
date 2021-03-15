@@ -22,7 +22,7 @@ const prog = sade("sane-error-messages");
 prog.version("0.1.0");
 
 prog
-  .command("start <dirName>")
+  .command("create <dirName>")
   .describe("Creates the project in your chosen directory")
   .action(async (pkg: string) => {
     const bootSpinner = ora(`Creating ${chalk.bold.green(pkg)}...`);

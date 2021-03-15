@@ -1,9 +1,11 @@
-# Sane Error Messages Generator
+# Sane Error Messages
+
+Gone are the days of useless generic error messaging. Keep your end-users happy with `sane-error-messages`.
 
 ## Todo
 
 - [x] Get a repo set up 
-- [ ] Run a script that generates a new project for someone
+- [x] Run a script that generates a new project for someone
 - [ ] Script can be run via `npx` 
 - [x] Add instructions into a README
 - [x] Use `tsdx` to handle all package management
@@ -15,19 +17,7 @@ Nice to have
 - [ ] Clean up the exports, and reduce code repetition
 - [ ] Create a javascript version
 
-
-## Name ideas
-
-- Custom Error Messages
-- Sane Error Management
-
-## Task
-
-To generate a very basic node module that people can extend to implement their own error messages and codes
-
-## Readme
-
-### The current state of error messaging
+## The current state of error messaging
 
 In a perfect would, this package would be completely redundant, but your end users are going to come across errors. These errors can stem take the form as:
 
@@ -48,7 +38,7 @@ The first creates a feeling of helplessness and frustration. A user is prevented
 
 The latter error messages are a leaky abstraction that shouldn't be making their way over to the end user's eyes. As well as providing implementation information about servers... what's kinneret's rationale?
 
-### Why should we create sane error messaging?
+## Why should we create sane error messaging?
 
 **Developer Sanity**
 
@@ -84,7 +74,9 @@ Taken from Microcopy: A complete guide. A useful error message should satisy the
 
 Begin by running
 
-`npx sane-error-messages` to scaffold your project. Doing so will create a brand new module for you to customise with your default error messages. Your new module uses `tsdx` under-the-hood to handle all of the module management scripts, such as running, building, testing. 
+`npx sane-error-messages create <dirName>` to scaffold your project. Doing so will create a brand new module for you to customise with your default error messages. Your new module uses `tsdx` under-the-hood to handle all of the module management scripts, such as running, building, testing. 
+
+You can learn more about [tsdx here](https://tsdx.io/)
 
 Your project's default api will look like this:
 
@@ -178,4 +170,4 @@ No necessarily. Because this package can take a list of default messages and cod
 
 **I think this package should have X or do Y differently**
 
-I'm dogfooding this internally at my job, and this is a problem space I'm very new to. I would love to hear of any suggestions, or improvements to the overall architecture or feature-set of sane-error-messages.
+I'm dogfooding this internally at my job, and this is a problem space I'm very new to. I would love to hear of any suggestions, or improvements to the overall architecture or feature-set of `sane-error-messages`.
