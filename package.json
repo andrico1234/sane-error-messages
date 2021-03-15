@@ -1,6 +1,6 @@
 {
   "name": "sane-error-messages",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Gone are the days of useless generic error messaging. Keep your end-users happy with `sane-error-messages`.",
   "bin": {
     "sane-error-messages": "./dist/index.js"
