@@ -36,7 +36,6 @@
     "shelljs": "^0.8.4"
   },
   "devDependencies": {
-    "@types/execa": "^2.0.0",
     "@types/fs-extra": "^9.0.8",
     "@types/node": "^14.14.34",
     "@types/sade": "^1.7.2",
