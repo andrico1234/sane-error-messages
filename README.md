@@ -77,7 +77,7 @@ Taken from [Microcopy: A complete guide](https://www.microcopybook.com/). A usef
 
 Inspired by how tools like [Cypress](https://github.com/cypress-io/cypress/blob/develop/packages/server/lib/errors.js) handle their error messaging, `sane-error-messages` is designed to help you, the developer, easily manage your error messaging across your end-user facing products.
 
-`sane-error-messages` creates a brand new repo for you, that you can customise to return sane error messages based on predefined error codes. You can then publish and consume from your within own projects.
+`sane-error-messages` creates a brand new repo for you, that you can customise to return sane error messages based on predefined error codes. You can then publish and consume from within your own projects.
 
 As long as your server returns predictable error codes, the server-side implementation doesn't matter. This sequence is just one way of implementing `sane-error-messages`:
 
@@ -126,6 +126,8 @@ type ErrorCode = ValueOf<errorCodes>
 ```
 
 ### Consuming your error messages
+
+If you created a repo with the name of `custom-error-messages` and published it to npm, you'd be able to consume it within your apps by doing the following:
 
 ```typescript
 import { ErrorMessages } from 'custom-error-messages';
