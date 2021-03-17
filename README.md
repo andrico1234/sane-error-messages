@@ -109,16 +109,17 @@ private const errorCodes {
 //The class used to initialise the error messages object in your project
 class ErrorMessages {
   // You can override default messages with more specific ones
-  constructor: (customErrorMessages: Partial<Record<ErrorCode, string>>): ErrorMessages;
+  constructor: (customErrorMessages: Partial<Record<string | number, string>>): ErrorMessages;
 
   // Pass through an error code to get your custom message
   getErrorMessage: (code: string | number, fallbackMessage?: string): string;
 
+  // Checks to see if the argument is a valid error code and acts as a guard for non-ErrorCode values
+  isErrorCode(code: string | number): boolean;
+
 	// Returns the errorCodes object with your custom messages
   messages: Record<ErrorCode, string>
 }
-  
-function isErrorCode(code: string | number): boolean;
 
 type ErrorCode = ValueOf<errorCodes>
 
@@ -151,6 +152,8 @@ function riskyFunction() {
 
 ```
 
+If you want to mess around with the `sane-error-messages` straight away, you can see it in action with [this code sandbox](https://codesandbox.io/s/amazing-platform-dxtjc?file=/src/App.js)
+
 
 ## FAQs
 
@@ -179,4 +182,4 @@ Nice to have
 - [ ] Link to error code object from remote
   - Would this be done at build time or run time?
 - [ ] Clean up the exports, and reduce code repetition
-- [ ] Create a javascript version
+- [ ] Create a javascript template
