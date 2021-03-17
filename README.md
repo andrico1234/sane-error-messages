@@ -10,7 +10,7 @@ If you want to jump straight in, you can head over to our [quickstart](#getting-
 
 ## The current state of error messaging
 
-In a perfect world, the error message would be redundant, users would be able to use anything you build, without friction. But errors will happen, and your end-users will run into them. These errors can stem from:
+In a perfect world, the error message would be redundant, users would use anything you've built, without friction. But errors will happen, and your end-users will run into them. These errors can stem from:
 
 - Failing validation
 - Server-side failures
