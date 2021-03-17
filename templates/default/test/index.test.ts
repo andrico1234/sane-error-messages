@@ -40,4 +40,22 @@ describe("ErrorMessage", () => {
 
     expect(message).toBe("this is the fallback");
   });
+
+  describe("isErrorCode", () => {
+    it("should return true for a correct error code", () => {
+      const { isErrorCode } = new ErrorMessages();
+
+      const res = isErrorCode(400);
+
+      expect(res).toBe(true);
+    });
+
+    it("should return false for an incorrect error code", () => {
+      const { isErrorCode } = new ErrorMessages();
+
+      const res = isErrorCode(600);
+
+      expect(res).toBe(false);
+    });
+  });
 });
