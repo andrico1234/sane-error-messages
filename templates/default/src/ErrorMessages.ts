@@ -1,22 +1,29 @@
-import { defaultErrorMessages } from './defaultErrorMessages';
-import { isErrorCode } from './isErrorCode';
-import type { ErrorCode } from './errorCodes'
+import { defaultErrorMessages } from "./defaultErrorMessages";
+import type { ErrorCode } from "./errorCodes";
 
 export class ErrorMessages {
   messages: Record<ErrorCode, string>;
 
-  constructor(customErrorMessages: Partial<Record<ErrorCode, string>> = {}) {
+  constructor(customErrorMessages: Record<number | string, string> = {}) {
     this.messages = {
       ...defaultErrorMessages,
       ...customErrorMessages,
     };
   }
 
+  isErrorCode(code: string | number): code is ErrorCode {
+    const errorCodes = Object.keys(this.messages);
+    const parsedCode = String(code);
+    const allowedKeys: string[] = Object.values(errorCodes);
+
+    return allowedKeys.indexOf(parsedCode) !== -1;
+  }
+
   getErrorMessage(code: number | string, fallbackMessage?: string) {
     const parsedCode = String(code);
 
-    if (!isErrorCode(parsedCode)) {
-      return fallbackMessage ?? this.messages['000'];
+    if (!this.isErrorCode(parsedCode)) {
+      return fallbackMessage ?? this.messages["000"];
     }
 
     const message = this.messages[parsedCode];

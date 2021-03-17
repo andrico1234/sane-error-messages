@@ -13,7 +13,8 @@
     "bundle"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "test": "npx tsdx test"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.8",
+    "@types/jest": "^26.0.21",
     "@types/node": "^14.14.34",
     "@types/sade": "^1.7.2",
     "@types/semver": "^7.3.4",
@@ -44,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "eslint": "^7.22.0",
+    "eslint-plugin-jest": "^24.3.2",
     "type-fest": "^0.21.3"
   }
 }
