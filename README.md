@@ -1,5 +1,15 @@
 # Sane Error Messages
 
+- [Sane Error Messages](#sane-error-messages)
+  - [The current state of error messaging](#the-current-state-of-error-messaging)
+  - [Why should we create sane error messaging?](#why-should-we-create-sane-error-messaging)
+  - [Getting started](#getting-started)
+    - [Setting up your error messages](#setting-up-your-error-messages)
+    - [Consuming your error messages](#consuming-your-error-messages)
+  - [Further Reading](#further-reading)
+  - [FAQs](#faqs)
+  - [Todo](#todo)
+
 Gone are the days of useless generic error messaging. Keep your end-users happy with `sane-error-messages`.
 
 ![](https://public-images-and-stuff.s3.amazonaws.com/ykhg3yuzq8931.png)
@@ -155,6 +165,15 @@ function riskyFunction() {
 ```
 
 If you want to mess around with the `sane-error-messages` straight away, you can see it in action with [this code sandbox](https://codesandbox.io/s/amazing-platform-dxtjc?file=/src/App.js)
+
+## Further Reading
+**Microcopy: A Complete Guide**
+I mentioned this book a little earlier, and it's one of my favourites when it comes to making my user-facing products a lot more personable. You can find a link to it [here](www.microcopybook.com):
+
+The book's author Kinneret, has graciously provided a coupon for 10% off.
+
+Coupon code for the eBook: andrico-ebook
+Coupon code for the bundle: andrico-bundle
 
 
 ## FAQs
